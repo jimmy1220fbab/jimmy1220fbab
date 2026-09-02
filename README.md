@@ -1,16 +1,21 @@
 # Jimmy Wang
 
-**AI Product Manager.** I ship AI products as complete commercial systems — the generative
-pipeline, the deterministic guardrails that make it safe to sell, the payment and entitlement
-layer, and the growth loop that feeds it.
+**AI Product Manager.** Taipei, Taiwan · [LinkedIn](https://www.linkedin.com/in/jimmy-wang-product/)
 
-Previously PM for audio products at ASUS, where I owned hardware from IC platform selection
-through mass production. Before that I founded and ran a consumer products company for four
-years — 40,000+ paying customers worldwide, NT$60M+ cumulative revenue, a six-person team, and
-up to NT$500K/month in performance marketing whose funnel, creative testing and attribution I
-owned end to end.
+- **Ex-ASUS PM** — owned wireless audio and headset products end to end, from IC platform
+  selection through NPI to mass production.
+- **Founder, five years of consumer products** — 40,000+ paying customers worldwide, NT$60M+
+  cumulative revenue, a six-person team, and up to NT$500K/month in performance marketing whose
+  funnel, creative testing and attribution I owned.
+- **Three AI products taken 0→1** — one live and shipping on desktop, iOS, Android and web; two
+  built, measured, and stopped for reasons I can show you the numbers for.
+- **MS + BS Electrical Engineering.** I use Claude Code and OpenAI Codex daily to map systems,
+  prototype, and ship production changes.
 
-Taipei, Taiwan · [LinkedIn](https://www.linkedin.com/in/jimmy-wang-product/)
+I ship AI products as complete commercial systems — the generative pipeline, the deterministic
+guardrails that make the output safe to sell, the payment and entitlement layer, and the growth
+loop that feeds it. The case studies below are the evidence: each opens with a one-screen
+summary, then goes as deep as you want to go.
 
 ---
 
@@ -89,8 +94,3 @@ FlexPresets.
 Singapore-registered company operating Fauve.
 
 MS and BS in Electrical Engineering, National Taiwan Ocean University.
-
----
-
-*I use Claude Code and OpenAI Codex daily to map systems, prototype workflows, evaluate
-implementation trade-offs, and ship production changes.*
