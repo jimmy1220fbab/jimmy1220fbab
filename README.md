@@ -6,8 +6,9 @@ layer, and the growth loop that feeds it.
 
 Previously PM for audio products at ASUS, where I owned hardware from IC platform selection
 through mass production. Before that I founded and ran a consumer products company for four
-years — 40,000+ paying customers, NT$60M+ cumulative revenue, a six-person team, and up to
-NT$500K/month in performance marketing that I owned end to end.
+years — 40,000+ paying customers worldwide, NT$60M+ cumulative revenue, a six-person team, and
+up to NT$500K/month in performance marketing whose funnel, creative testing and attribution I
+owned end to end.
 
 Taipei, Taiwan · [LinkedIn](https://www.linkedin.com/in/jimmy-wang-product/)
 
@@ -48,22 +49,24 @@ it cost.
 
 ## The same skeleton, three times
 
-The interesting part of an AI product is rarely the model call. It is everything that has to
-be true before you can charge money for the output. All three products have the same five
-layers — which is the argument that this is a method, not three lucky shots.
+The interesting part of an AI product is rarely the model call. It is everything that has to be
+true before you can charge money for the output. All three products solve the same problems in
+the same order — which is the argument that this is a method rather than three lucky shots.
 
 | | **Fauve** | **Zyras** | **Vocuz** |
 |---|---|---|---|
-| **AI pipeline** | Intent router → anchor match → grade graph | Classifier → executor, with dynamic tool loading | Curriculum planner → per-slide generation → media |
-| **Determinism guardrail** | AI decides *what* the look is; deterministic color code decides *how* to land it | Proposed writes are validated, then paused for human approval before they commit | Structured schema per slide; truncated output is treated as failure and escalated |
-| **Failure handling** | Async grading and export jobs, cancellable | Durable job phases that resume after approval | Classified retryable errors, exponential backoff, model escalation, multi-provider TTS fallback |
-| **Unit economics** | Per-account AI usage metering and an internal AI-cost dashboard | — | Per-model pricing table; every generation is costed and written to a ledger, paired with MRR snapshots |
-| **Commerce** | Stripe, Apple IAP and Google Play billing, each with server-to-server notifications | Stripe checkout and webhooks | Stripe subscriptions, one-off course purchases, bundles, refunds |
-| **Growth loop** | Retention and win-back crons, ad-spend sync | Daily project health and digest notifications | Behavior profiles → segments → lifecycle email → ad audiences → back to acquisition |
+| **Pipeline shape** | Adjust router → anchor match → 4-layer grade graph | `gpt-5-nano` classifier → `gpt-5.2` executor, tools loaded per class | `gemini-3.1-pro` curriculum → Flash Phase 1 → Flash Phase 2 per slide |
+| **What keeps it honest** | AI picks *what* the look is; deterministic transfer bakes a 3D LUT and discards the anchor | Proposed writes are validated, then held at `awaiting_approval` until a human commits | Per-slide schema; `MAX_TOKENS` counts as failure and escalates instead of shipping half a sentence |
+| **Cost control in the architecture** | 4 layers, 1 model call; a 100-clip batch is one grade; corrections route to free on-device paths | Classify once, load only that category's tools; 5 granular tools consolidated into one `mutate_*` | Route by task — Pro for one-shot cross-lesson reasoning, Flash for the ~1,500 per-slide calls |
+| **Failure design** | Async grading and export jobs, cancellable | Durable phases: `classifying → executing → awaiting_approval → resuming` | Classified retries, layout demotion, 3-tier context fallback, 3 TTS providers |
+| **Measured** | Per-call tokens and USD in `ai_cost_ledger`; internal AI-cost dashboard | Daily health scoring with stated inputs | `api_cost_logs` × `mrr_snapshots` = margin per generated course |
+| **Consistency across surfaces** | One color spec ported to 6 renderers, held by golden-file and ~231 pixel-parity tests | One project context; discipline axis (EE/ME/SW/FW/PM/QTR) slices every artifact | Content split by language rows, not forked courses |
+| **Commerce** | Perpetual licence across 9 currencies; Stripe + Apple IAP + Google Play; `active → grace → locked` enforced server-side | Stripe checkout and webhooks | Subscriptions, one-off purchases, bundles, refunds |
 | **Surfaces** | Desktop, iOS, Android, web | Web | Web, 3 languages |
 
-Each case study opens with the full system diagram for that product, then walks through the
-decisions that shaped it. Source code is private; the case studies are the public artifact.
+Each case study opens with the system diagram and a request-lifecycle sequence, then walks
+through the architecture and the decisions behind it. Source code is private; the case studies
+are the public artifact.
 
 ---
 
@@ -78,9 +81,9 @@ pricing, margin and demand forecasting.
 **Founder & General Manager — VAUDICA CO., LTD.** (2022–2026)
 Built and ran two businesses: SKINCASE, a mobile accessories brand taken through the full
 physical product lifecycle from tooling to fulfillment, and FlexPresets, a photography presets
-and LUT business sold worldwide. Managed a six-person team, an office and warehouse, and the
-acquisition funnel end to end. Fauve is the AI-native evolution of FlexPresets, built on that
-customer base.
+and LUT business I ran for five years and sold worldwide. Managed a six-person team, an office
+and warehouse, and the acquisition funnel end to end. Fauve is the AI-native evolution of
+FlexPresets.
 
 **Founder & Director — Zyras Global Pte. Ltd.** (2026–present)
 Singapore-registered company operating Fauve.
