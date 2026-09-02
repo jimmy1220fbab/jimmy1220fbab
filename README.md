@@ -60,7 +60,7 @@ the same order — which is the argument that this is a method rather than three
 | **Cost control in the architecture** | 4 layers, 1 model call; a 100-clip batch is one grade; corrections route to free on-device paths | Classify once, load only that category's tools; 5 granular tools consolidated into one `mutate_*` | Route by task — Pro for one-shot cross-lesson reasoning, Flash for the ~1,500 per-slide calls |
 | **Failure design** | Async grading and export jobs, cancellable | Durable phases: `classifying → executing → awaiting_approval → resuming` | Classified retries, layout demotion, 3-tier context fallback, 3 TTS providers |
 | **Measured** | Per-call tokens and USD in `ai_cost_ledger`; internal AI-cost dashboard | Daily health scoring with stated inputs | `api_cost_logs` × `mrr_snapshots` = margin per generated course |
-| **Consistency across surfaces** | One color spec ported to 6 renderers, held by golden-file and ~231 pixel-parity tests | One project context; discipline axis (EE/ME/SW/FW/PM/QTR) slices every artifact | Content split by language rows, not forked courses |
+| **Consistency across surfaces** | Every grade compiles to one canonical LUT + 4 spatial params; a completeness guard fails the build if a new control is unclassified | One project context; discipline axis (EE/ME/SW/FW/PM/QTR) slices every artifact | Content split by language rows, not forked courses |
 | **Commerce** | Perpetual licence across 9 currencies; Stripe + Apple IAP + Google Play; `active → grace → locked` enforced server-side | Stripe checkout and webhooks | Subscriptions, one-off purchases, bundles, refunds |
 | **Surfaces** | Desktop, iOS, Android, web | Web | Web, 3 languages |
 
